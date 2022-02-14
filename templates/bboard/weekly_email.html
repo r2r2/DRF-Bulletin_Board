@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bulletin board</title>
+</head>
+<body>
+<h3>Hello {{ user.username }}.</h3>
+<p>Here are a list of last posts, check it out</p>
+{% for post in post_list %}
+    {{ post.title }} <br>
+    {{ post.text|truncatechars:50 }}
+    <a href="http://127.0.0.1:8000{{ post.get_absolute_url }}">читать на сайте</a>
+{% endfor %}
+</body>
+</html>
